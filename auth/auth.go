@@ -335,7 +335,7 @@ func (c *baseClient) verifyIDToken(ctx context.Context, idToken string, checkRev
 		}
 	}
 
-	if c.isEmulator || checkRevokedOrDisabled {
+	if checkRevokedOrDisabled {
 		err = c.checkRevokedOrDisabled(ctx, decoded, idTokenRevoked, "ID token has been revoked")
 		if err != nil {
 			return nil, err
